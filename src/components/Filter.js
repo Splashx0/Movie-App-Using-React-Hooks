@@ -19,7 +19,7 @@ const Filter = ({data}) => {
              <input type="text" class="form-control-sm" placeholder="type a rate" onChange={handleSearchByRate} />
         </div>
       <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap mb-3">
-
+        
         {data.filter((movie)=>movie.title.toLowerCase().includes(TitleSearched)&&
                                  movie.rating.toString().includes(RateSearched))
              .map((movie)=><MovieCard key={movie.title} movie={movie}/>)}

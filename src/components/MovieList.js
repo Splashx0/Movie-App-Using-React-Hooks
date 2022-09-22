@@ -2,13 +2,8 @@ import React, { useState } from "react";
 import Filter from "./Filter";
 
 const MovieList = ({ movies, handleAdd }) => {
-  const [Add, setAdd] = useState({
-    title: "",
-    description: "",
-    posterURL: "",
-    rating: "",
-  });
-
+  const [Add, setAdd] = useState({title: "",description: "",posterURL: "",rating: "",trailer:''});
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
@@ -17,8 +12,6 @@ const MovieList = ({ movies, handleAdd }) => {
   const handleChange = (e) => {
     const value = e.target.value;
     setAdd({ ...Add, [e.target.name]: value });
-
-
   };
   return (
     <div>
@@ -28,6 +21,8 @@ const MovieList = ({ movies, handleAdd }) => {
           <input type="text" class="form-control-sm" placeholder="description" name="description"  onChange={handleChange}/>
           <input type="text" class="form-control-sm" placeholder="posterURL" name="posterURL"onChange={handleChange}/>
           <input type="text" class="form-control-sm" placeholder="rating" name="rating"onChange={handleChange}/>
+          <input type="text" class="form-control-sm" placeholder="trailer" name="trailer"onChange={handleChange}/>
+
           <button class="btn btn-primary" onClick={() => handleAdd(Add)}>
             Add
           </button>
